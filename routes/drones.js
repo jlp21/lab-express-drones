@@ -2,10 +2,17 @@ const express = require('express');
 const router = express.Router();
 
 // require the Drone model here
+const Drone = require("../models/Drone.model");
 
 router.get('/drones', (req, res, next) => {
   // Iteration #2: List the drones
-  // ... your code here
+  Drone.find()
+  .then(allDronesFromDB => {
+    console.log("drones:", allDronesFromDB);
+
+    res.render("../views/drones/list", {drones: allDronesFromDB, numberOfDrones: allDronesFromDB.length});
+  })
+  .catch(error => console.log("An error occurred while getting books from database: ", error ))
 });
 
 router.get('/drones/create', (req, res, next) => {

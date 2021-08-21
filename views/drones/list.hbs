@@ -1,1 +1,22 @@
-<h2>Available drones</h2>
+<h2>Available Drones</h2>
+
+<div>
+    <h3>In the DB we have {{numberOfDrones}} drones</h3>
+</div>
+
+
+{{#each drones}}
+
+<div>
+<p>Name:{{name}}</p>
+</div>
+
+<div>
+{{propellers}}
+</div>
+
+<div>
+{{maxSpeed}}
+</div>
+
+{{/each}}
